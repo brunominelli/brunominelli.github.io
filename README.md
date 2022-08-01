@@ -35,31 +35,38 @@
   <ul>
     <li>
       <strong>Simular Orçamento</strong>: Permite que a pessoa usuária simule um orçamento de um projeto.
+    </li>
+    <li>
       <strong>Baixar Currículo</strong>: Permite que a pessoa usuária baixe uma cópia da versão mais recente do meu currículo.
+    </li>
+    <li>
       <strong>Visualizar Projeto</strong>: Permite que a pessoa usuária visualize um cartão com a descrição sumária do projeto.
     </li>
   </ul>
 </section>
 
 <section>
-  <h2>&#x1F527; Tecnologias utilizadas</h2>
+  <h2>&#x1F527; Tecnologias Utilizadas</h2>
   <strong>Desenvolvimento Front-end</strong>
   <ul>
     <li>React</li>
     <li>Styled-Components</li>
     <li>Axios</li>
-    <li>React Testing Library</li>
   </ul>
   <strong>Desenvolvimento Back-end</strong>
   <ul>
     <li>NodeJS</li>
+    <li>TypeORM</li>
+  </ul>
+  <strong>Testes Unitários e Testes de Integração</strong>
+  <ul>
+    <li>React Testing Library</li>
     <li>Mocha</li>
     <li>Chai</li>
     <li>Sinon</li>
   </ul>
-  <strong>Banco de dados</strong>
+  <strong>Banco de Dados</strong>
   <ul>
-    <li>TypeORM</li>
     <li>MySQL</li>
   </ul>
 </section>
