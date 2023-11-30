@@ -13,4 +13,4 @@ Neste espaço eu publico as atualizações dos projetos que estão concluídos a
 </p>
 
 <h2>&#x1F91D; Colaboradores</h2>
-<a href="https://github.com/obrunominelli">Bruno Minelli</a>
+<a href="https://github.com/brunominelli">Bruno Minelli</a>
