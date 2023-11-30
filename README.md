@@ -9,11 +9,8 @@ Desde novembro de 2021 eu atualizo repositórios no GitHub com projetos que eu d
 </p>
 
 <p>
-Este é o meu site/portfólio. Neste espaço eu publico as atualizações constantes dos projetos que estão concluídos além dos projetos que estão em desenvolvimento. Caso queria saber mais sobre mim ou sobre algum projeto, fique à vontade para entrar em contato comigo para marcarmos uma conversa.
+Neste espaço eu publico as atualizações dos projetos que estão concluídos além dos projetos que estão em desenvolvimento. Caso queria saber mais sobre mim ou sobre algum projeto, fique à vontade para entrar em contato comigo para marcarmos uma conversa.
 </p>
 
 <h2>&#x1F91D; Colaboradores</h2>
 <a href="https://github.com/obrunominelli">Bruno Minelli</a>
-
-<h2>&#x1F3AF; Status do projeto</h2>
-<p>Em desenvolvimento</p>
