@@ -29,11 +29,6 @@
         <a href="https://github.com/brunominelli"
           ><img src="/assets/icon-github.svg"
         /></a>
-        <a
-          aria-label="Chat on WhatsApp"
-          href="https://wa.me/5519989769066?text=Oi, Bruno, tudo bom? Gostaria de fazer uma proposta para você."
-          ><img alt="Chat on WhatsApp" src="/assets/icon-whatsapp.svg" />
-        </a>
       </div>
     </section>
   </article>

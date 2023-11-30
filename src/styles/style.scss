@@ -125,10 +125,10 @@ $text: #070707 !default;
       text-decoration: none;
       padding: 8px 16px;
       border-radius: 32px;
+      color: $purple;
       transition: 500ms;
       &:hover {
         background-color: $light-purple;
-        transition: 500ms;
       }
     }
   }
