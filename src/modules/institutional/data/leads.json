@@ -1,0 +1,12 @@
+[
+    {
+        "id": "d0c74183-e504-4c8f-b010-eb232bd13207",
+        "lead": "Bruno",
+        "email": "bruno@email.com",
+        "sheet_model": "Excel",
+        "sheet_amount": "1",
+        "register_amount": 50,
+        "register_type": "Clients",
+        "current_challenge": "The life sucks"
+    }
+]
