@@ -11,12 +11,12 @@ class GenerateFinanceReportController:
         print(f'> Entrada: R${report.income:.2f}')
         for data in report.data:
             if float(data['valor']) > 0:
-                print(f'Descrição: {data['descricao']}\n>> Valor: R${float(data['valor']):.2f}')
+                print(f'Descrição: {data['descricao']} | Valor: R${float(data['valor']):.2f}')
         
         print(f'\n> Despesas: R${report.expenses:.2f}')
         for data in report.data:
             if float(data['valor']) < 0:
-                print(f'Descrição: {data['descricao']}\n>> Valor: R${float(data['valor']):.2f}')
+                print(f'Descrição: {data['descricao']} | Valor: R${float(data['valor']):.2f}')
         
         print(f'\n> Saldo: R${report.balance:.2f}')
         return report
