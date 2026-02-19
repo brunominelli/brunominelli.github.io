@@ -1,1 +1,5 @@
-print('Olá, Cofre de Bolso')
+from src.modules.personal_finance.ui.main import controller as personal_finance_controller
+from src.modules.report.ui.main import controller as report_controller
+
+report = report_controller.generate_finance_report(file_path='report.csv')
+personal_finance_controller.generate_personal_finance_report(income=report.income)

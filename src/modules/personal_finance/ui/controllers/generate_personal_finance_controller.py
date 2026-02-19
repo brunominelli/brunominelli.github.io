@@ -7,4 +7,5 @@ class GeneratePersonalFinanceController:
     
     def generate_personal_finance_report(self, income:float) -> PersonalFinance:
         personal_finance_report = self.use_case.execute(income=income)
+        print(personal_finance_report)
         return personal_finance_report
