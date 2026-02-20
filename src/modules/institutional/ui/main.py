@@ -54,14 +54,14 @@ while True:
             leads = read_all_use_case.execute()
             if leads == []:
                 print('There is no lead...')
-                input('Press any key to continue')
+                input('\nPress any key to continue')
             else:
                 for lead in leads:
                     print(lead.__str__())
-                    input('Press any key to continue')
+                input('\nPress any key to continue')
         except Exception as error:
             print(f'Error: {error}')
-            input('Press any key to continue')
+            input('\nPress any key to continue')
     elif option == '3':
         ...
     elif option == '4':
