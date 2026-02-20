@@ -54,7 +54,7 @@ class JSONLeadRepository(ILeadRepository):
             )
         return leads
     
-    def read_by_email(self, email) -> list[Lead]:
+    def read_by_email(self, email:str) -> list[Lead]:
         with open(self.file_path, 'r', encoding='utf-8') as file:
             data:list = json.load(file)
             leads:list = []
@@ -75,8 +75,24 @@ class JSONLeadRepository(ILeadRepository):
                     leads.append(lead)
         return leads
     
-    def read_by_id(self, id) -> Lead:
-        return super().read_by_id(id)
+    def read_by_id(self, id:str) -> Lead:
+        with open(self.file_path, 'r', encoding='utf-8') as file:
+            data:list = json.load(file)
+
+            for item in data:
+                lead = lead = Lead(
+                    id=item['id'],
+                    lead=item['lead'],
+                    email=item['email'],
+                    sheet_model=item['sheet_model'],
+                    sheet_amount=item['sheet_amount'],
+                    register_amount=item['register_amount'],
+                    register_type=item['register_type'],
+                    current_challenge=item['current_challenge']
+                )
+
+                if lead.id == id:
+                    return lead
     
     def update(self, id, lead) -> None:
         return super().update(id, lead)

@@ -16,3 +16,7 @@ class LeadController:
     def read_by_email(self, email:str) -> list[Lead]:
         leads = self.use_case.execute(email=email)
         return leads
+    
+    def read_by_id(self, id:str) -> list[Lead]:
+        leads = self.use_case.execute(id=id)
+        return leads
