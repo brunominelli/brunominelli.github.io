@@ -8,3 +8,7 @@ class LeadController:
     def create(self, lead:Lead) -> Lead:
         created_lead = self.use_case.execute(lead=lead)
         return created_lead
+    
+    def read_all(self) -> list[Lead]:
+        leads = self.use_case.execute()
+        return leads
