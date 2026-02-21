@@ -37,7 +37,7 @@ class JSONLeadRepository(ILeadRepository):
         return [self._to_entity(item=item) for item in self._load()]
     
     def read_by_email(self, email:str) -> list[Lead]:
-        return [self._to_entity(item=item) for item in self._load()]
+        return [self._to_entity(item) for item in self._load() if email in item['email']]
     
     def read_by_id(self, id:str) -> Lead:
         for item in self._load():
@@ -47,12 +47,19 @@ class JSONLeadRepository(ILeadRepository):
     
     def update(self, id:str, lead:Lead) -> None:
         data = self._load()
+        updated = False
+
         for index, item in enumerate(data):
             if item['id'] == id:
                 data[index] = self._to_dict(lead=lead)
-                self._save(data=data)
-                return
-        raise Exception('Lead not found')
+                updated = True
+                break
+            
+        if not updated:
+            raise Exception('Lead not found')
+        
+        self._save(data=data)
+        
     
     def delete(self, id:str) -> None:
         data = self._load()

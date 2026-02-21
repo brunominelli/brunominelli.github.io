@@ -1,11 +1,12 @@
 import os
 import subprocess
 import uuid
-from src.modules.institutional.ui.di import build_institutional_containter
+
+from src.app.container import ApplicationContainer
 from src.modules.institutional.domain.entities.lead import Lead
 
 def clear():
-    subprocess.run('cls' if os.name == 'nt' else subprocess.run('clear'))
+    subprocess.run('cls' if os.name == 'nt' else 'clear')
 
 def pause():
     input('\nPress ENTER to continue...\n')
@@ -17,7 +18,7 @@ def safe_int_input(message:str, default:int | None = None) -> int:
     return int(value)
 
 def main():
-    controllers = build_institutional_containter()
+    controllers = ApplicationContainer()
 
     while True:
         clear()
@@ -49,7 +50,7 @@ def main():
                     current_challenge = input('Current Challenge: '),
                 )
 
-                controllers['create'].create(lead=lead)
+                controllers.institutional.create_lead.execute(lead=lead)
 
                 print('Success: Lead created!')
                 pause()
@@ -57,7 +58,7 @@ def main():
             elif option == '2':
                 print('\nRead All\n')
                 
-                leads = controllers['read_all'].read_all()
+                leads = controllers.institutional.read_all_lead.execute()
 
                 if not leads:
                     print('Leads not found.')
@@ -71,7 +72,7 @@ def main():
                 print('\nRead By E-mail\n')
 
                 email = input('E-mail: ')
-                leads = controllers['read_by_email'].read_by_email(email=email)
+                leads = controllers.institutional.read_by_email.execute(email=email)
 
                 if not leads:
                     print('Leads not found.')
@@ -86,7 +87,7 @@ def main():
                 print('\nRead By ID\n')
 
                 id = input('ID: ')
-                lead = controllers['read_by_id'].read_by_id(id=id)
+                lead = controllers.institutional.read_by_id.execute(id=id)
 
                 if lead is None:
                     print('Lead not found')
@@ -99,7 +100,7 @@ def main():
                 print('\nUpdate\n')
 
                 id = input('ID: ')
-                existing = controllers['read_by_id'].read_by_id(id=id)
+                existing = controllers.institutional.read_by_id.execute(id=id)
 
                 if existing is None:
                     print('Lead not found')
@@ -119,7 +120,7 @@ def main():
                     current_challenge=input(f'Current Challenge ({existing.current_challenge}): ') or existing.current_challenge,
                 )
 
-                controllers['update'].update(id=id, lead=updated_lead)
+                controllers.institutional.update_lead.execute(id=id, lead=updated_lead)
 
                 print('\nSuccess: Lead updated!\n')
                 pause()
@@ -128,7 +129,7 @@ def main():
                 print('\nDelete\n')
 
                 id = input('ID: ')
-                controllers['delete'].delete(id=id)
+                controllers.institutional.delete_lead.execute(id=id)
 
                 print('Lead has been deleted')
                 pause()

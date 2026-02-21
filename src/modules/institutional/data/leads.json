@@ -1,1 +1,22 @@
-[]
+[
+    {
+        "id": "b30ef64d-cec3-446c-8ecc-dde32426eb72",
+        "lead": "Minelli",
+        "email": "minelli@email.com",
+        "sheet_model": "Google Sheet",
+        "sheet_amount": "2",
+        "register_amount": 200,
+        "register_type": "Dogs",
+        "current_challenge": "Handle them at Day Care"
+    },
+    {
+        "id": "73d3f694-db51-4482-880f-673ecfc33312",
+        "lead": "Almeida",
+        "email": "almeida@gmail.com",
+        "sheet_model": "Libre Office",
+        "sheet_amount": "5",
+        "register_amount": 1000,
+        "register_type": "Storage",
+        "current_challenge": "Categorize the products"
+    }
+]
