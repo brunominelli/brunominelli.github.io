@@ -11,7 +11,7 @@ class PersonalFinance:
     
     def __str__(self):
         return (
-            f'\n\n===== Relatório - Finanças Pessoais =====\n\n'
+            f'\n===== Relatório - Finanças Pessoais =====\n\n'
             f'=== 70% para Despesas: R${self.expenses:.2f} ===\n'
             f'> 60% para Despesas Fixas: R${self.fixed_expenses:.2f}\n'
             f'> 10% para Lazer: R${self.leisure:.2f}\n\n'

@@ -17,9 +17,12 @@ class LeadController:
         leads = self.use_case.execute(email=email)
         return leads
     
-    def read_by_id(self, id:str) -> list[Lead]:
+    def read_by_id(self, id:str) -> Lead:
         leads = self.use_case.execute(id=id)
         return leads
     
+    def update(self, id:str, lead:Lead) -> None:
+        self.use_case.execute(id=id, lead=lead)
+
     def delete(self, id:str) -> None:
         self.use_case.execute(id=id)

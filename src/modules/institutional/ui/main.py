@@ -1,130 +1,147 @@
+import os
 import subprocess
 import uuid
+from src.modules.institutional.ui.di import build_institutional_containter
 from src.modules.institutional.domain.entities.lead import Lead
-from src.modules.institutional.domain.use_cases.create_use_case import CreateUseCase
-from src.modules.institutional.domain.use_cases.read_all_use_case import ReadAllUseCase
-from src.modules.institutional.domain.use_cases.read_by_email_use_case import ReadByEmailUseCase
-from src.modules.institutional.domain.use_cases.read_by_id_use_case import ReadByIdUseCase
-from src.modules.institutional.domain.use_cases.delete_use_case import DeleteUseCase
-from src.modules.institutional.data.repositories.json_lead_repository import JSONLeadRepository
-from src.modules.institutional.ui.controllers.lead_controller import LeadController
 
-repository = JSONLeadRepository()
-create_use_case = CreateUseCase(repository=repository)
-create_controller = LeadController(use_case=create_use_case)
+def clear():
+    subprocess.run('cls' if os.name == 'nt' else subprocess.run('clear'))
 
-read_all_use_case = ReadAllUseCase(repository=repository)
-read_all_controller = LeadController(use_case=read_all_use_case)
+def pause():
+    input('\nPress ENTER to continue...\n')
 
-read_by_email_use_case = ReadByEmailUseCase(repository=repository)
-read_by_email_controller = LeadController(use_case=read_by_email_use_case)
+def safe_int_input(message:str, default:int | None = None) -> int:
+    value = input(message)
+    if not value and default is not None:
+        return default
+    return int(value)
 
-read_by_id_use_case = ReadByIdUseCase(repository=repository)
-read_by_id_controller = LeadController(use_case=read_by_id_use_case)
+def main():
+    controllers = build_institutional_containter()
 
-delete_use_case = DeleteUseCase(repository=repository)
-delete_controller = LeadController(use_case=delete_use_case)
+    while True:
+        clear()
 
-while True:
-    subprocess.run('clear')
+        print('\nCRUD Lead\n')
 
-    print('CRUD Lead')
-    print('1. Create')
-    print('2. Read All')
-    print('3. Read By E-mail')
-    print('4. Read By ID')
-    print('5. Update')
-    print('6. Delete')
-    print('0. Exit')
+        print('1. Create Lead')
+        print('2. Read All Leads')
+        print('3. Read Lead By E-mail')
+        print('4. Read Lead By ID')
+        print('5. Update Lead')
+        print('6. Delete Lead')
+        print('0. Exit')
 
-    option = input('Option: ')
+        option = input('Option: ')
+        try: 
+            if option == '1':
+                clear()
+                print('\nCreate Lead\n')
 
-    if option == '1':
-        subprocess.run('clear')
+                lead = Lead(
+                    id = str(uuid.uuid4()),
+                    lead = input('Lead: '),
+                    email = input('E-Mail: '),
+                    sheet_model = input('Sheet Model: '),
+                    sheet_amount = input('Sheet Amount: '),
+                    register_amount = int(input('Register Amount: ')),
+                    register_type = input('Register Type: '),
+                    current_challenge = input('Current Challenge: '),
+                )
 
-        print('Create Lead\n')
-        lead = Lead()
-        lead.id = str(uuid.uuid4())
-        lead.lead = input('Lead: ')
-        lead.email = input('E-Mail: ')
-        lead.sheet_model = input('Sheet Model: ')
-        lead.sheet_amount = input('Sheet Amount: ')
-        lead.register_amount = int(input('Register Amount: '))
-        lead.register_type = input('Register Type: ')
-        lead.current_challenge = input('Current Challenge: ')
+                controllers['create'].create(lead=lead)
 
-        try:
-            create_controller.create(lead=lead)
-            print('Success: Lead has been created!')
-            print('Press any button to continue')
-            subprocess.run('clear')
-        except Exception as error:
-            print(f'Error> {error}')
-    elif option == '2':
-        print('Read All')
-        try:
-            leads = read_all_use_case.execute()
-            if leads == []:
-                print('There is no lead...')
-                input('\nPress any key to continue')
-            else:
-                for lead in leads:
+                print('Success: Lead created!')
+                pause()
+            
+            elif option == '2':
+                print('\nRead All\n')
+                
+                leads = controllers['read_all'].read_all()
+
+                if not leads:
+                    print('Leads not found.')
+                else:
+                    for lead in leads:
+                        print(lead)
+
+                pause()
+
+            elif option == '3':
+                print('\nRead By E-mail\n')
+
+                email = input('E-mail: ')
+                leads = controllers['read_by_email'].read_by_email(email=email)
+
+                if not leads:
+                    print('Leads not found.')
+                    input('\nPress ENTER to continue')
+                else:
+                    for lead in leads:
+                        print(lead)
+
+                pause()
+
+            elif option == '4':
+                print('\nRead By ID\n')
+
+                id = input('ID: ')
+                lead = controllers['read_by_id'].read_by_id(id=id)
+
+                if lead is None:
+                    print('Lead not found')
+                else:
                     print(lead)
-                input('\nPress any key to continue')
-        except Exception as error:
-            print(f'Error: {error}')
-            input('\nPress any key to continue')
-    elif option == '3':
-        print('Read By E-mail')
-        email = input('E-mail: ')
-        try:
-            leads = read_by_email_use_case.execute(email=email)
-            if leads == []:
-                print('Leads not found...')
-                input('\nPress any key to continue')
+                
+                pause()
+
+            elif option == '5':
+                print('\nUpdate\n')
+
+                id = input('ID: ')
+                existing = controllers['read_by_id'].read_by_id(id=id)
+
+                if existing is None:
+                    print('Lead not found')
+                    pause()
+                    continue
+
+                print('\n Leave blank to keep current value.\n')
+
+                updated_lead = Lead(
+                    id=existing.id,
+                    lead=input(f'Lead ({existing.lead}): ') or existing.lead,
+                    email=input(f'E-Mail ({existing.email}): ') or existing.email,
+                    sheet_model=input(f'Sheet Model ({existing.sheet_model}): ') or existing.sheet_model,
+                    sheet_amount=input(f'Sheet Amount ({existing.sheet_amount}): ') or existing.sheet_amount,
+                    register_amount=safe_int_input(f'Register Amount ({existing.register_amount}): ', default=existing.register_amount),
+                    register_type=input(f'Register Type ({existing.register_type}): ') or existing.register_type,
+                    current_challenge=input(f'Current Challenge ({existing.current_challenge}): ') or existing.current_challenge,
+                )
+
+                controllers['update'].update(id=id, lead=updated_lead)
+
+                print('\nSuccess: Lead updated!\n')
+                pause()
+
+            elif option == '6':
+                print('\nDelete\n')
+
+                id = input('ID: ')
+                controllers['delete'].delete(id=id)
+
+                print('Lead has been deleted')
+                pause()
+
+            elif option == '0':
+                print('Bye!')
+                break
             else:
-                for lead in leads:
-                    print(lead)
-                input('\nPress any key to continue')
+                print('Invalid option!')
+                pause()
         except Exception as error:
-            print(f'Error: {error}')
-            input('\nPress any key to continue')
+            print(f'\nError: {error}\n')
+            pause()
 
-    elif option == '4':
-        print('Read By ID')
-        id = input('ID: ')
-        try:
-            lead = read_by_id_use_case.execute(id=id)
-            if lead is None:
-                print('Lead not found')
-            else:
-                print(lead)
-            input('Press any key to continue')
-        except Exception as error:
-            # raise error
-            print(f'Error: {error}')
-            input('Press any key to continue')
-
-    elif option == '5':
-        ...
-    elif option == '6':
-        print('Delete')
-        id = input('ID: ')
-        try:
-            delete_use_case.execute(id=id)
-            print('Lead has been deleted')
-            input('Press any key to continue')
-        except Exception as error:
-            print(f'Error: {error}')
-            input('Press any key to continue')
-
-    elif option == '7':
-        ...
-    elif option == '0':
-        print('Bye!')
-        break
-    else:
-        print('Invalid option!')
-        input('Press any button to continue')
-
-
+if __name__ == '__main__':
+    main()

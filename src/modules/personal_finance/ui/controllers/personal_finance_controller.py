@@ -1,7 +1,7 @@
 from src.modules.personal_finance.domain.entities.personal_finance import PersonalFinance
 from src.modules.personal_finance.domain.use_cases.generate_finance_report_use_case import GeneratePersonalFinanceReportUseCase
 
-class LocalPersonalFinanceController:
+class PersonalFinanceController:
     def __init__(self, use_case:GeneratePersonalFinanceReportUseCase):
         self.use_case = use_case
     
