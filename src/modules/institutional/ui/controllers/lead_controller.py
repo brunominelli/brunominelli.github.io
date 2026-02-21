@@ -20,3 +20,6 @@ class LeadController:
     def read_by_id(self, id:str) -> list[Lead]:
         leads = self.use_case.execute(id=id)
         return leads
+    
+    def delete(self, id:str) -> None:
+        self.use_case.execute(id=id)

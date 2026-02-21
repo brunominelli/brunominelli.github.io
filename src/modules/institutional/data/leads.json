@@ -8,15 +8,5 @@
         "register_amount": 50,
         "register_type": "Clients",
         "current_challenge": "The life sucks"
-    },
-    {
-        "id": "af8d4b1f-03aa-4b2b-82a6-663fd4e974b8",
-        "lead": "Minelli",
-        "email": "minelli@gmail.com",
-        "sheet_model": "Google Sheets",
-        "sheet_amount": "2",
-        "register_amount": 200,
-        "register_type": "Finance",
-        "current_challenge": "Don`t know where the mobey is going"
     }
 ]

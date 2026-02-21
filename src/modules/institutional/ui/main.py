@@ -5,6 +5,7 @@ from src.modules.institutional.domain.use_cases.create_use_case import CreateUse
 from src.modules.institutional.domain.use_cases.read_all_use_case import ReadAllUseCase
 from src.modules.institutional.domain.use_cases.read_by_email_use_case import ReadByEmailUseCase
 from src.modules.institutional.domain.use_cases.read_by_id_use_case import ReadByIdUseCase
+from src.modules.institutional.domain.use_cases.delete_use_case import DeleteUseCase
 from src.modules.institutional.data.repositories.json_lead_repository import JSONLeadRepository
 from src.modules.institutional.ui.controllers.lead_controller import LeadController
 
@@ -20,6 +21,9 @@ read_by_email_controller = LeadController(use_case=read_by_email_use_case)
 
 read_by_id_use_case = ReadByIdUseCase(repository=repository)
 read_by_id_controller = LeadController(use_case=read_by_id_use_case)
+
+delete_use_case = DeleteUseCase(repository=repository)
+delete_controller = LeadController(use_case=delete_use_case)
 
 while True:
     subprocess.run('clear')
@@ -97,14 +101,23 @@ while True:
                 print(lead)
             input('Press any key to continue')
         except Exception as error:
-            raise error
+            # raise error
             print(f'Error: {error}')
             input('Press any key to continue')
 
     elif option == '5':
         ...
     elif option == '6':
-        ...
+        print('Delete')
+        id = input('ID: ')
+        try:
+            delete_use_case.execute(id=id)
+            print('Lead has been deleted')
+            input('Press any key to continue')
+        except Exception as error:
+            print(f'Error: {error}')
+            input('Press any key to continue')
+
     elif option == '7':
         ...
     elif option == '0':

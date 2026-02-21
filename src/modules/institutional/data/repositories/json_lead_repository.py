@@ -97,5 +97,11 @@ class JSONLeadRepository(ILeadRepository):
     def update(self, id, lead) -> None:
         return super().update(id, lead)
     
-    def delete(self, id, lead) -> None:
-        return super().delete(id, lead)
+    def delete(self, id:str) -> None:
+        with open(self.file_path, 'r', encoding='utf-8') as file:
+            data:list = json.load(file)
+        
+        leads = [item for item in data if item['id'] != id]
+
+        with open(self.file_path, 'w', encoding='utf-8') as file:
+            json.dump(leads, file, indent=4)
