@@ -17,7 +17,7 @@ def safe_int_input(message:str, default:int | None = None) -> int:
         return default
     return int(value)
 
-def main():
+def local_lead_crud():
     controllers = ApplicationContainer()
 
     while True:
@@ -145,4 +145,4 @@ def main():
             pause()
 
 if __name__ == '__main__':
-    main()
+    local_lead_crud()
