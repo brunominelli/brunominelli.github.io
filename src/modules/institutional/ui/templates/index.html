@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}Bruno Minelli | Automação personalizada para organizar seu negócio{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Automação personalizada para organizar as finanças do seu negócio.</h1>
+    <p>
+        Soluções sob medida para freelancers, autônomos e pequenos negócios
+        que vivem de planilhas e precisam de clareza real sobre receitas, despesas e lucro.
+    </p>
+    <a href="#formulario" class="cta">Solicitar diagnóstico personalizado</a>
+</section>
+
+<!-- PROBLEMA -->
+<section>
+    <h2>Se você depende de planilhas, provavelmente já passou por isso:</h2>
+    <ul>
+        <li>Dados espalhados em várias abas</li>
+        <li>Fórmulas quebrando</li>
+        <li>Dificuldade para visualizar lucro real</li>
+        <li>Controle manual e cansativo</li>
+        <li>Sensação constante de desorganização</li>
+    </ul>
+    <p>
+        Você trabalha muito. Mas não tem clareza total sobre os números.
+    </p>
+</section>
+
+<!-- SOLUÇÃO -->
+<section>
+    <h2>Uma solução sob medida para sua realidade</h2>
+    <p>
+        Cada negócio tem uma estrutura diferente.
+        Por isso, eu desenvolvo automações personalizadas adaptadas ao seu modelo atual.
+    </p>
+
+    <ul>
+        <li>Organização automática de planilhas</li>
+        <li>Consolidação de dados</li>
+        <li>Relatórios claros de receitas e despesas</li>
+        <li>Controle real do lucro</li>
+        <li>Redução de erros manuais</li>
+    </ul>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section>
+    <h2>Como funciona</h2>
+    <ol>
+        <li>Você preenche o diagnóstico abaixo</li>
+        <li>Eu analiso sua estrutura atual</li>
+        <li>Desenvolvo a automação personalizada</li>
+        <li>Entrego a solução pronta para uso</li>
+    </ol>
+</section>
+
+<!-- DIFERENCIAL -->
+<section>
+    <h2>Não é um aplicativo genérico.</h2>
+    <p>
+        Não é uma plataforma engessada.
+        Não é mais uma mensalidade.
+    </p>
+    <p>
+        É uma solução personalizada que respeita o seu fluxo de trabalho.
+    </p>
+</section>
+
+<!-- FORMULÁRIO -->
+<section id="formulario">
+    <h2>Solicite seu diagnóstico personalizado</h2>
+    <p>
+        Preencha as informações abaixo para receber uma proposta sob medida.
+    </p>
+
+    <div class="form-container">
+
+        <h2>Solicite seu diagnóstico personalizado</h2>
+        <p>
+            Preencha as informações abaixo para receber uma análise da sua estrutura atual
+            e uma proposta sob medida.
+        </p>
+
+        <form action="{{ url_for('institutional.create_lead') }}" method="POST">
+
+            <label for="lead_name">Nome / Empresa</label>
+            <input type="text" id="lead_name" name="lead_name" required>
+
+            <label for="lead_email">E-mail</label>
+            <input type="email" id="lead_email" name="lead_email" required>
+
+            <h3>Estrutura Atual</h3>
+
+            <label for="leed_sheet_model">Modelo de planilha utilizado</label>
+            <select id="leed_sheet_model" name="leed_sheet_model" required>
+                <option value="">Selecione</option>
+                <option value="excel">Excel</option>
+                <option value="google_sheets">Google Sheets</option>
+                <option value="ambos">Ambos</option>
+            </select>
+
+            <label for="leed_sheet_amount">Quantidade média de planilhas</label>
+            <select id="leed_sheet_amount" name="leed_sheet_amount" required>
+                <option value="">Selecione</option>
+                <option value="1">1 planilha</option>
+                <option value="2-3">2 a 3 planilhas</option>
+                <option value="4+">4 ou mais</option>
+            </select>
+
+            <label for="leed_register_amount">Volume médio de registros por mês</label>
+            <select id="leed_register_amount" name="leed_register_amount" required>
+                <option value="">Selecione</option>
+                <option value="ate_300">Até 300 registros</option>
+                <option value="300_1000">Entre 300 e 1000</option>
+                <option value="1000+">Mais de 1000</option>
+            </select>
+
+            <label for="lead_register_type">Tipo de registros que você controla</label>
+            <select id="lead_register_type" name="lead_register_type" required>
+                <option value="">Selecione</option>
+                <option value="financeiro">Financeiro</option>
+                <option value="clientes">Clientes</option>
+                <option value="projetos">Projetos</option>
+                <option value="estoque">Estoque</option>
+                <option value="financeiro_clientes">Financeiro + Clientes</option>
+                <option value="financeiro_projetos">Financeiro + Projetos</option>
+                <option value="outros">Outros</option>
+            </select>
+
+            <h3>Seu desafio atual</h3>
+
+            <label for="lead_current_challenge">
+                Descreva sua maior dificuldade hoje com seus dados
+            </label>
+            <textarea id="lead_current_challenge" name="lead_current_challenge" rows="5" required></textarea>
+
+            <button type="submit" class="cta">
+                Solicitar Diagnóstico
+            </button>
+
+        </form>
+
+    </div>
+</section>
+
+{% endblock %}
