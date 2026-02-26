@@ -15,7 +15,7 @@ class UpdateUseCase:
                 id=id,
                 lead=lead.lead or search.lead,
                 email=lead.email or search.email,
-                sheet_model=lead.sheet_model or search.sheet_model,
+                sheet_tool=lead.sheet_tool or search.sheet_tool,
                 sheet_amount=lead.sheet_amount or search.sheet_amount,
                 register_amount=lead.register_amount or search.sheet_amount,
                 register_type=lead.register_type or search.register_type,

@@ -4,6 +4,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash
 
 from src.app.container import ApplicationContainer
 from src.modules.institutional.domain.entities.lead import Lead
+from src.modules.institutional.domain.dtos.create_lead_input_dto import CreateLeadInputDTO
 from src.modules.institutional.ui.forms import LeadForm
 
 institutional = Blueprint(
@@ -20,15 +21,28 @@ def index():
 
 @institutional.route('/lead', methods=['POST'])
 def create_lead():
-    form = LeadForm(request.form)
+
+    input_dto = CreateLeadInputDTO(
+        id = str(uuid.uuid4()),
+        lead = request.form.get('lead_name', ''),
+        email = request.form.get('lead_email', ''),
+        sheet_tool = request.form.get('leed_sheet_tool', ''),
+        sheet_amount = request.form.get('leed_sheet_amount', ''),
+        register_amount = request.form.get('leed_register_amount', ''),
+        register_type = request.form.get('lead_register_type', ''),
+        current_challenge = request.form.get('lead_current_challenge'),
+
+    )
+
+    form = LeadForm(lead_dto=input_dto)
 
     if not form.is_valid():
         for error in form.errors:
             flash(error)
         return redirect(url_for('institutional.index'))
 
-    lead = Lead(**form.to_dict())
-    controller.create_lead(lead=lead)
+    lead = controller.create_lead.execute(input_dto=input_dto)
+    controller.generate_offer.execute(lead=lead)
 
     return redirect(url_for('institutional.success'))
 

@@ -1,43 +1,48 @@
 import re
+import uuid
+
+from src.modules.institutional.domain.dtos.create_lead_input_dto import CreateLeadInputDTO
 
 class LeadForm:
-    def __init__(self, form_data: dict):
+    def __init__(self, lead_dto: CreateLeadInputDTO):
         self.errors = []
+        self.lead_dto = lead_dto
 
-        self.lead = form_data.get('lead_name', '')
-        self.email = form_data.get('lead_email', '')
-        self.sheet_model = form_data.get('leed_sheet_model', '')
-        self.sheet_amount = form_data.get('leed_sheet_amount', '')
-        self.register_amount = form_data.get('leed_register_amount', '')
-        self.register_type = form_data.get('lead_register_type', '')
-        self.current_challenge = form_data.get('lead_current_challenge')
+        # self.id = str(uuid.uuid4())
+        # self.lead = form_data.get('lead_name', '')
+        # self.email = form_data.get('lead_email', '')
+        # self.sheet_tool = form_data.get('leed_sheet_tool', '')
+        # self.sheet_amount = form_data.get('leed_sheet_amount', '')
+        # self.register_amount = form_data.get('leed_register_amount', '')
+        # self.register_type = form_data.get('lead_register_type', '')
+        # self.current_challenge = form_data.get('lead_current_challenge')
 
         self._validate()
 
     def _validate(self):
-        if not self.lead:
+        if not self.lead_dto.lead:
             self.errors.append('Nome/Empresa é obrigatório.')
         
-        if not self.email:
+        if not self.lead_dto.email:
             self.errors.append('E-mail é obrigatório.')
         else:
             pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
-            if not re.match(pattern=pattern, string=self.email):
+            if not re.match(pattern=pattern, string=self.lead_dto.email):
                 self.errors.append('E-mail inválido')
         
-        if not self.sheet_model:
+        if not self.lead_dto.sheet_tool:
             self.errors.append('Selecione o modelo de planilha.')
         
-        if not self.sheet_amount:
+        if not self.lead_dto.sheet_amount:
             self.errors.append('Informe a quantidade média de planilhas.')
         
-        if not self.register_amount:
+        if not self.lead_dto.register_amount:
             self.errors.append('Informe a quantidade de planilhas.')
         
-        if not self.register_type:
+        if not self.lead_dto.register_type:
             self.errors.append('Informe o(s) tipo(s) de registro(s).')
         
-        if not self.current_challenge:
+        if not self.lead_dto.current_challenge:
             self.errors.append('Descreva seu desafio atual.')
     
     def is_valid(self):
@@ -45,11 +50,12 @@ class LeadForm:
     
     def to_dict(self):
         return {
-            'lead': self.lead,
-            'email': self.email,
-            'sheet_model': self.sheet_model,
-            'sheet_amount': self.sheet_amount,
-            'register_amount': self.register_amount,
-            'register_type': self.register_type,
-            'current_challenge': self.current_challenge,
+            'id': self.lead_dto.id,
+            'lead': self.lead_dto.lead,
+            'email': self.lead_dto.email,
+            'sheet_tool': self.lead_dto.sheet_tool,
+            'sheet_amount': self.lead_dto.sheet_amount,
+            'register_amount': self.lead_dto.register_amount,
+            'register_type': self.lead_dto.register_type,
+            'current_challenge': self.lead_dto.current_challenge,
         }

@@ -1,4 +1,3 @@
-import os
 import json
 from pathlib import Path
 from src.modules.institutional.domain.entities.lead import Lead
@@ -26,11 +25,13 @@ class JSONLeadRepository(ILeadRepository):
         return Lead(**item)
 
     def _to_dict(self, lead:Lead) -> dict:
-        return lead.__dict__
+        return lead._to_dict()
 
     def create(self, lead:Lead) -> None:
+        print(self._to_dict(lead=lead))
         data = self._load()
         data.append(self._to_dict(lead=lead))
+        print(data[len(data) - 1])
         self._save(data=data)
     
     def read_all(self) -> list[Lead]:
