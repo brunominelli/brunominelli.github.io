@@ -1,5 +1,3 @@
-import uuid
-
 from src.modules.institutional.domain.entities.lead import Lead
 from src.modules.institutional.domain.repositories.i_lead_repository import ILeadRepository
 from src.modules.institutional.domain.value_objects.sheet_tool import SheetTool
@@ -13,7 +11,6 @@ class CreateUseCase:
         self.repository = repository
 
     def execute(self, input_dto:CreateLeadInputDTO) -> Lead:
-        print(input_dto.__str__())
         lead = Lead(
             id=input_dto.id,
             lead=input_dto.lead,

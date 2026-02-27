@@ -28,10 +28,8 @@ class JSONLeadRepository(ILeadRepository):
         return lead._to_dict()
 
     def create(self, lead:Lead) -> None:
-        print(self._to_dict(lead=lead))
         data = self._load()
         data.append(self._to_dict(lead=lead))
-        print(data[len(data) - 1])
         self._save(data=data)
     
     def read_all(self) -> list[Lead]:

@@ -3,7 +3,6 @@ import uuid
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 
 from src.app.container import ApplicationContainer
-from src.modules.institutional.domain.entities.lead import Lead
 from src.modules.institutional.domain.dtos.create_lead_input_dto import CreateLeadInputDTO
 from src.modules.institutional.ui.forms import LeadForm
 
@@ -31,7 +30,6 @@ def create_lead():
         register_amount = request.form.get('leed_register_amount', ''),
         register_type = request.form.get('lead_register_type', ''),
         current_challenge = request.form.get('lead_current_challenge'),
-
     )
 
     form = LeadForm(lead_dto=input_dto)
