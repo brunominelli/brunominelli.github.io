@@ -212,7 +212,7 @@ class PDFOfferRepository(IOfferRepository):
         ))
 
         elements.append(Paragraph(
-            'contato@brunominelli.dev',
+            'contato@brunominelli.dev.br',
             normal
         ))
 

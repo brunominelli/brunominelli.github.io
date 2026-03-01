@@ -3,7 +3,7 @@ import uuid
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 
 from src.app.container import ApplicationContainer
-from src.modules.institutional.domain.dtos.create_lead_input_dto import CreateLeadInputDTO
+from src.modules.institutional.domain.dtos.create_lead_dto import CreateLeadDTO
 from src.modules.institutional.ui.forms import LeadForm
 
 institutional = Blueprint(
@@ -21,7 +21,7 @@ def index():
 @institutional.route('/lead', methods=['POST'])
 def create_lead():
 
-    input_dto = CreateLeadInputDTO(
+    input_dto = CreateLeadDTO(
         id = str(uuid.uuid4()),
         lead = request.form.get('lead_name', ''),
         email = request.form.get('lead_email', ''),

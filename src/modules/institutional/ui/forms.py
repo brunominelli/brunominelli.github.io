@@ -1,21 +1,11 @@
 import re
-import uuid
 
-from src.modules.institutional.domain.dtos.create_lead_input_dto import CreateLeadInputDTO
+from src.modules.institutional.domain.dtos.create_lead_dto import CreateLeadDTO
 
 class LeadForm:
-    def __init__(self, lead_dto: CreateLeadInputDTO):
+    def __init__(self, lead_dto: CreateLeadDTO):
         self.errors = []
         self.lead_dto = lead_dto
-
-        # self.id = str(uuid.uuid4())
-        # self.lead = form_data.get('lead_name', '')
-        # self.email = form_data.get('lead_email', '')
-        # self.sheet_tool = form_data.get('leed_sheet_tool', '')
-        # self.sheet_amount = form_data.get('leed_sheet_amount', '')
-        # self.register_amount = form_data.get('leed_register_amount', '')
-        # self.register_type = form_data.get('lead_register_type', '')
-        # self.current_challenge = form_data.get('lead_current_challenge')
 
         self._validate()
 

@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 @dataclass(frozen=True)
-class CreateLeadInputDTO:
+class CreateLeadDTO:
     id:str
     lead:str
     email:str

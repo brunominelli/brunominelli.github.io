@@ -4,13 +4,13 @@ from src.modules.institutional.domain.value_objects.sheet_tool import SheetTool
 from src.modules.institutional.domain.value_objects.sheet_amount import SheetAmount
 from src.modules.institutional.domain.value_objects.register_amount import RegisterAmount
 from src.modules.institutional.domain.value_objects.register_type import RegisterType
-from src.modules.institutional.domain.dtos.create_lead_input_dto import CreateLeadInputDTO
+from src.modules.institutional.domain.dtos.create_lead_dto import CreateLeadDTO
 
 class CreateUseCase:
     def __init__(self, repository:ILeadRepository):
         self.repository = repository
 
-    def execute(self, input_dto:CreateLeadInputDTO) -> Lead:
+    def execute(self, input_dto:CreateLeadDTO) -> Lead:
         lead = Lead(
             id=input_dto.id,
             lead=input_dto.lead,

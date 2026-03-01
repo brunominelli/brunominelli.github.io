@@ -1,9 +1,9 @@
 from enum import Enum
 
 class RegisterAmount(Enum):
-    UP_TO_300 = 'Até 300 registros'
-    BETWEEN_300_AND_1000 = 'Entre 300 e 1000 registros'
-    MORE_THAN_1000 = 'Mais de 1000 registros'
+    UP_TO_300 = 'até 300 registros'
+    BETWEEN_300_AND_1000 = '300 a 1000 registros'
+    MORE_THAN_1000 = 'mais de 1000 registros'
 
     @classmethod
     def normalize(cls, value:str) -> 'RegisterAmount':
