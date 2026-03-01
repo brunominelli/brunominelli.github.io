@@ -9,12 +9,6 @@ from src.modules.institutional.domain.use_cases.update_use_case import UpdateUse
 from src.modules.institutional.domain.use_cases.delete_use_case import DeleteUseCase
 from src.modules.institutional.domain.use_cases.generate_offer_use_case import GenerateOfferUseCase
 
-from src.modules.personal_finance.data.repositories.personal_finance_repository import PersonalFinanceRepository
-from src.modules.personal_finance.domain.use_cases.generate_finance_report_use_case import GeneratePersonalFinanceReportUseCase
-
-from src.modules.report.data.repositories.report_repository import ReportRepository
-from src.modules.report.domain.use_cases.generate_finance_report_use_case import GenerateFinanceReportUseCase
-
 class InstitutionalContainer:
     def __init__(self):
         self._lead_repository = JSONLeadRepository()
@@ -43,24 +37,6 @@ class InstitutionalContainer:
     def generate_offer(self):
         return GenerateOfferUseCase(repository=self._offer_repository)
 
-class PersonalFinanceContainer:
-    def __init__(self):
-        self._personal_finance_repository = PersonalFinanceRepository()
-    
-    @property
-    def generate_personal_finance_report(self):
-        return GeneratePersonalFinanceReportUseCase(repository=self._personal_finance_repository)
-
-class ReportContainer:
-    def __init__(self):
-        self._report_repository = ReportRepository()
-    
-    @property
-    def generate_finance_report(self):
-        return GenerateFinanceReportUseCase(repository=self._report_repository)
-
 class ApplicationContainer:
     def __init__(self):
         self.institutional = InstitutionalContainer()
-        self.report = ReportContainer()
-        self.personal_finance = PersonalFinanceContainer()
