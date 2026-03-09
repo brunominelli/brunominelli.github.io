@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <section>
+            <img src="" alt="Bruno Minelli">
+            <h1>Bruno Minelli</h1>
+        </section>
+        <nav>
+            <a href="">Diagnóstico Técnico</a>
+            <a href="">Como Funciona</a>
+            <a href="">Sobre</a>
+            <a href="">Solicitar Diagnóstico</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock%}
+    </main>
+    <footer>
+        <p>Bruno Minelli | Consultoria em Automações**</p>
+        <p>
+            Estruturação e automação de planilhas para pequenos negócios que precisam de organização operacional antes de
+            escalar.
+        </p>
+        <p>Links</p>
+        <nav>
+            <a href="">Diagnóstico Técnico</a>
+            <a href="">Política de Privacidade</a>
+            <a href="">Termos de Uso</a>
+            <a href="">Contato</a>
+        </nav>
+        <p>Contato</p>
+        <p>Email: contato@brunominelli.com</p>
+        <p>&copy;2026 Bruno Minelli — Todos os direitos reservados</p>
+    </footer>
+</body>
+
+</html>

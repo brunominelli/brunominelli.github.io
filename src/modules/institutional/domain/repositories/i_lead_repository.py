@@ -10,6 +10,9 @@ class ILeadRepository(ABC):
     def read(self) -> list[Lead]:...
 
     @abstractmethod
+    def read_by_id(self, id:str) -> Lead:...
+
+    @abstractmethod
     def update(self, id:str, lead:Lead) -> None:...
 
     @abstractmethod
