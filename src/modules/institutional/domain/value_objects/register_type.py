@@ -8,16 +8,17 @@ class RegisterType(Enum):
     SALES = 'Vendas'
     OTHERS = 'Outros'
 
-    def normalize(self, key:str) -> str:
+    @classmethod
+    def normalize(cls, key:str) -> str:
         mapping = {
-            'finance': self.FINANCE,
-            'projects': self.PROJECTS,
-            'clients': self.CLIENTS,
-            'storage': self.STORAGE,
-            'sales': self.SALES,
-            'others': self.OTHERS,
+            'finance': cls.FINANCE,
+            'projects': cls.PROJECTS,
+            'clients': cls.CLIENTS,
+            'storage': cls.STORAGE,
+            'sales': cls.SALES,
+            'others': cls.OTHERS,
         }
 
-        if key not in mapping[key]:
+        if key not in mapping:
             raise ValueError(f'Invalid data: {key}')
         return str(mapping[key].value)

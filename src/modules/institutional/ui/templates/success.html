@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Bruno Minelli | Consultoria em Automações{% endblock %}
+{% block content %}
+<section id="success">
+    <h2>Recebi suas informações!</h2>
+    <p>
+        Obrigado por compartilhar seu cenário. Já vou analisar com atenção para entender
+        como sua operação está funcionando hoje e onde existem oportunidades de melhoria.
+    </p>
+    <p>
+        Em breve você receberá um e-mail meu com os próximos passos. Em alguns casos,
+        posso sugerir uma conversa rápida para entender melhor o contexto e te orientar com mais clareza.
+    </p>
+    <p>
+        Se não encontrar a mensagem na caixa de entrada, vale dar uma olhada também na pasta de spam ou promoções.
+    </p>
+    <p>
+        Fique tranquilo: todas as informações são tratadas com confidencialidade e usadas apenas para essa análise.
+    </p>
+    <div class="success-actions">
+        <a href="{{ url_for('institutional.index') }}">
+            <button>Voltar para a página inicial</button>
+        </a>
+    </div>
+</section>
+
+{% endblock %}

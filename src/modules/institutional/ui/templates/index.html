@@ -1,25 +1,178 @@
 {% extends "base.html" %}
 {% block title %}Bruno Minelli | Consultoria em Automações{% endblock %}
 {% block content %}
-<main>
 
-    <section id="hero"></section>
+<section id="hero" class="landing-section">
+    <h2>Sua operação pode ser mais simples e confiável do que parece hoje.</h2>
+    <p>
+        Eu ajudo a organizar e automatizar processos baseados em planilhas para reduzir retrabalho,
+        evitar erros e dar mais clareza no dia a dia da sua operação.
+    </p>
+    <p>
+        <strong>Diagnóstico gratuito para entender seu cenário atual e identificar oportunidades de automação.</strong>
+    </p>
+    <a href="#form">
+        <button>Solicitar diagnóstico gratuito</button>
+    </a>
+</section>
+<hr>
 
-    <section id="problem"></section>
+<section id="problem" class="landing-section">
+    <h2>Isso acontece no seu dia a dia?</h2>
+    <p>Muitas operações acabam passando por situações como:</p>
+    <ul>
+        <li>Uso de várias planilhas que não se conversam muito bem</li>
+        <li>Insegurança com dados ou fórmulas importantes</li>
+        <li>Dificuldade para gerar relatórios com confiança</li>
+        <li>Tempo considerável gasto organizando informações manualmente</li>
+        <li>Ajustes frequentes para manter tudo funcionando</li>
+    </ul>
+    <p>
+        Isso é mais comum do que parece, principalmente em negócios que cresceram rápido
+        e foram se adaptando ao longo do tempo.
+    </p>
+    <p>
+        Se você se identificou com alguns desses pontos, provavelmente existe espaço para melhorar
+        a organização e automatizar parte desse processo.
+    </p>
+</section>
+<hr>
 
-    <section id="diagnosis"></section>
+<section id="diagnosis" class="landing-section">
+    <h2>Diagnóstico Técnico Gratuito</h2>
+    <p>
+        Eu faço uma análise inicial da sua estrutura atual para entender como suas planilhas estão organizadas
+        e onde existem oportunidades de melhoria.
+    </p>
+    <p><strong>Nessa análise, você recebe:</strong></p>
+    <ul>
+        <li>Uma visão clara dos pontos que podem estar gerando retrabalho</li>
+        <li>Possíveis riscos ou fragilidades na estrutura atual</li>
+        <li>Uma leitura do nível de complexidade da operação</li>
+        <li>Sugestões iniciais de como automatizar ou simplificar o processo</li>
+    </ul>
+    <p>
+        O objetivo é te dar clareza sobre o cenário atual e ajudar a entender quais caminhos fazem mais sentido seguir.
+    </p>
+    <p><strong>Prazo:</strong> até 2 dias úteis</p>
+    <p><strong>Investimento:</strong> Gratuito</p>
 
-    <section id="not-included"></section>
+    <hr>
 
-    <section id="patterns"></section>
+    <p>
+        Se fizer sentido avançar, posso aprofundar essa análise em um diagnóstico completo,
+        onde detalho o escopo técnico, prazo e investimento para implementação.
+    </p>
+</section>
+<hr>
 
-    <section id="about"></section>
+<section id="not-included" class="landing-section">
+    <h2>Sobre esta etapa</h2>
+    <ul>
+        <li>Não inclui implementação neste momento</li>
+        <li>Não envolve mudanças diretas nas suas planilhas</li>
+        <li>Não é um acompanhamento contínuo</li>
+    </ul>
+    <p>
+        Essa etapa existe para entender seu cenário com calma e avaliar, juntos, se vale a pena automatizar.
+    </p>
+</section>
+<hr>
 
-    <section id="security"></section>
+<section id="patterns" class="landing-section">
+    <h2>Situações que costumo encontrar</h2>
+    <ul>
+        <li>Informações duplicadas em diferentes planilhas</li>
+        <li>Processos manuais para consolidar dados</li>
+        <li>Fórmulas que funcionam, mas exigem ajustes frequentes</li>
+        <li>Falta de padrão na organização</li>
+        <li>Dificuldade para acompanhar histórico ou mudanças</li>
+        <li>Crescimento da estrutura sem uma base definida</li>
+    </ul>
+    <p>
+        Com o tempo, esses pontos acabam consumindo tempo e dificultando a evolução da operação.
+    </p>
+</section>
+<hr>
 
-    <section id="availability"></section>
+<section id="about" class="landing-section">
+    <h2>Sobre quem vai analisar seu cenário</h2>
+    <p>Sou <strong>Bruno Minelli</strong>, desenvolvedor focado em:</p>
+    <ul>
+        <li>Organização e estruturação de dados</li>
+        <li>Automação de processos operacionais</li>
+        <li>Redução de tarefas manuais</li>
+        <li>Construção de bases mais organizadas e sustentáveis</li>
+    </ul>
+    <p>
+        Meu trabalho é ajudar a tornar sua operação mais simples, confiável e preparada para crescer.
+    </p>
+    <p>
+        Antes de automatizar, gosto de entender bem a estrutura — isso evita retrabalho e garante melhores resultados.
+    </p>
+</section>
+<hr>
 
-    <section id="lead-form"></section>
+<section id="security" class="landing-section">
+    <h2>Confidencialidade e Segurança</h2>
+    <ul>
+        <li>Seus dados são utilizados apenas para análise</li>
+        <li>Nenhuma informação é compartilhada</li>
+        <li>Os arquivos são excluídos após a análise</li>
+    </ul>
+</section>
+<hr>
 
-</main>
+<section id="availability" class="landing-section">
+    <h2>Disponibilidade</h2>
+    <p>
+        Como cada análise é feita com atenção ao detalhe, atendo um número limitado de diagnósticos por semana.
+    </p>
+    <p>
+        Isso garante uma avaliação mais cuidadosa e útil para o seu cenário.
+    </p>
+</section>
+<hr>
+
+<section id="form" class="landing-section">
+    <h2>Solicitar Diagnóstico Gratuito</h2>
+    <p>
+        Preencha as informações abaixo para que eu possa entender melhor seu cenário
+        e identificar possíveis melhorias.
+    </p>
+    <form method="POST" action="/lead">
+        <label>Nome / Empresa</label>
+        <input type="text" name="lead_name" required>
+        <label>Email</label>
+        <input type="email" name="lead_email" required>
+        <label>Quantidade de planilhas</label>
+        <select name="lead_sheet_amount" id="" required>
+            <option value="">Selecione</option>
+            <option value="up_to_2">1 a 2 planilhas</option>
+            <option value="up_to_5">3 a 5 planilhas</option>
+            <option value="up_to_10">6 a 10 planilhas</option>
+            <option value="more_than_10">mais de 10 planilhas</option>
+        </select>
+        <label>Média de registros por planilha</label>
+        <select name="lead_register_amount" id="">
+            <option value="">Selecione</option>
+            <option value="up_to_500">até 500 registros</option>
+            <option value="up_to_2000">entre 500 e 2000 registros</option>
+            <option value="up_to_5000">entre 2000 e 5000 registros</option>
+            <option value="more_than_5000">mais de 5000 registros</option>
+        </select>
+        <label>Tipo de controle</label>
+        <div class="form-box">
+            <label><input type="checkbox" name="lead_register_type" value="finance"> Finanças</label>
+            <label><input type="checkbox" name="lead_register_type" value="projects"> Projetos</label>
+            <label><input type="checkbox" name="lead_register_type" value="clients"> Clientes</label>
+            <label><input type="checkbox" name="lead_register_type" value="storage"> Estoque</label>
+            <label><input type="checkbox" name="lead_register_type" value="sales"> Vendas</label>
+            <label><input type="checkbox" name="lead_register_type" value="others"> Outros</label>
+        </div>
+        <label>Descrição do problema</label>
+        <textarea name="lead_current_problem" rows="5"></textarea>
+        <button type="submit">Solicitar diagnóstico gratuito</button>
+    </form>
+</section>
 {% endblock %}

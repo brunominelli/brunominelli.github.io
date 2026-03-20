@@ -2,44 +2,74 @@
 <html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
+
+    <title>{% block title %}Bruno Minelli | Consultoria em Automações de Planilhas{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <meta name="description"
+        content="Consultoria especializada em automação e estruturação de planilhas para pequenos negócios. Diagnóstico técnico para identificar gargalos, reduzir retrabalho e preparar sua operação para crescer com segurança.">
+
+    <meta name="author" content="Bruno Minelli">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://brunominelli.dev.br">
+
+    <!-- OPEN GRAPH -->
+
+    <meta property="og:title" content="Bruno Minelli | Consultoria em Automações">
+    <meta property="og:description"
+        content="Diagnóstico técnico para identificar gargalos e oportunidades de automação em planilhas usadas por pequenos negócios.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://brunominelli.dev.br">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- TWITTER -->
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Consultoria em Automação de Planilhas">
+    <meta name="twitter:description"
+        content="Diagnóstico técnico para organizar planilhas e preparar pequenas empresas para crescer com segurança.">
+
+    <!-- SCHEMA.ORG -->
+
+    <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "ProfessionalService",
+ "name": "Bruno Minelli Consultoria em Automações",
+ "description": "Consultoria especializada em estruturação e automação de planilhas para pequenos negócios.",
+ "areaServed": "Brasil",
+ "url": "https://brunominelli.dev.br"
+}
+</script>
+
 </head>
 
 <body>
+
     <header>
-        <section>
-            <img src="" alt="Bruno Minelli">
-            <h1>Bruno Minelli</h1>
-        </section>
-        <nav>
-            <a href="">Diagnóstico Técnico</a>
-            <a href="">Como Funciona</a>
-            <a href="">Sobre</a>
-            <a href="">Solicitar Diagnóstico</a>
-        </nav>
+        <h1>Bruno Minelli</h1>
+        <h2>Consultoria em Automações</h2>
     </header>
+
     <main>
-        {% block content %}{% endblock%}
+        {% block content %}{% endblock %}
     </main>
+
     <footer>
-        <p>Bruno Minelli | Consultoria em Automações**</p>
-        <p>
-            Estruturação e automação de planilhas para pequenos negócios que precisam de organização operacional antes de
-            escalar.
-        </p>
-        <p>Links</p>
-        <nav>
-            <a href="">Diagnóstico Técnico</a>
-            <a href="">Política de Privacidade</a>
-            <a href="">Termos de Uso</a>
-            <a href="">Contato</a>
-        </nav>
-        <p>Contato</p>
-        <p>Email: contato@brunominelli.com</p>
-        <p>&copy;2026 Bruno Minelli — Todos os direitos reservados</p>
+        <p><strong>Bruno Minelli | Consultoria em Automações</strong></p>
+        <!-- <p>
+            Estruturação e automação de planilhas para pequenos negócios que precisam
+            organizar suas operações antes de crescer.
+        </p> -->
+        <p>© 2026 Bruno Minelli — Todos os direitos reservados</p>
     </footer>
+
 </body>
 
 </html>
