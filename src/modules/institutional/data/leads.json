@@ -54,5 +54,17 @@
             "Vendas"
         ],
         "current_problem": "Padocaria do Baldomiro"
+    },
+    {
+        "id": "77becb48-f970-4ab3-b604-e6d5e63ecaf2",
+        "lead": "Padoca do Baldo",
+        "email": "bruno@email.com",
+        "sheet_amount": "up_to_5",
+        "register_amount": "more_than_5000",
+        "register_type": [
+            "finance",
+            "clients"
+        ],
+        "current_problem": "asdasdasadvaewrfgr"
     }
 ]

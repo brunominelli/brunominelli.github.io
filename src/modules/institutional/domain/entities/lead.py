@@ -12,6 +12,7 @@ class Lead:
     register_amount: str
     register_type: list[str]
     current_problem: str
+    status: str
 
     def __post_init__(self):
         errors = []
@@ -25,7 +26,7 @@ class Lead:
         if not self.email:
             errors.append('Required field: E-mail')
         else:
-            pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+            pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
             if not re.match(pattern, self.email):
                 errors.append('Invalid E-mail')
 
@@ -40,17 +41,21 @@ class Lead:
 
         if not self.current_problem:
             errors.append('Required field: Current Problem')
+        
+        if not self.status:
+            self.status = ''
 
         if errors:
-            raise ValueError(", ".join(errors))
+            raise ValueError(', '.join(errors))
 
     def _to_dict(self) -> dict:
         return {
-            "id": self.id,
-            "lead": self.lead,
-            "email": self.email,
-            "sheet_amount": self.sheet_amount,
-            "register_amount": self.register_amount,
-            "register_type": self.register_type,
-            "current_problem": self.current_problem
+            'id': self.id,
+            'lead': self.lead,
+            'email': self.email,
+            'sheet_amount': self.sheet_amount,
+            'register_amount': self.register_amount,
+            'register_type': self.register_type,
+            'current_problem': self.current_problem,
+            'status': self.status
         }
