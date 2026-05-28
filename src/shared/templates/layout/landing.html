@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block stylesheet %}{%endblock %}
+</head>
+
+<body>
+    <header>
+        <h1>Bruno Minelli</h1>
+        <nav>
+            <a href="#solution" class="btn btn-secondary">Soluções</a>
+            <a href="#contact" class="btn btn-secondary">Contato</a>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer>
+        <p>Bruno Minelli</p>
+        <p>Desenvolvedor de Software • Automação com Python</p>
+        <p>Menos retrabalho. Mais tempo para construir.</p>
+    </footer>
+</body>
+
+</html>

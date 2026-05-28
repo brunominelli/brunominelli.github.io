@@ -13,7 +13,7 @@ class CreateLeadUseCase:
 
         if not lead:
             lead = Lead(
-                id=uuid.uuid4(),
+                id=str(uuid.uuid4()),
                 name=dto.name,
                 email=Email(dto.email).__str__(),
                 phone=dto.phone,

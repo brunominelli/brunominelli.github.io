@@ -1,4 +1,4 @@
-from flask import request, jsonify
+from flask import request, jsonify, redirect, url_for
 from src.shared.injection.container import Container
 from src.modules.lead.application.dtos.lead_input_dto import LeadInputDTO
 from src.modules.lead.application.dtos.lead_update_dto import LeadUpdateDTO
@@ -8,16 +8,15 @@ class LeadController:
         self.lead = container.lead
     
     def create(self):
-        data = request.json
+        data = request.form
 
         if not data:
             raise Exception("JSON inválido")
         
         dto = LeadInputDTO(**data)
-
         self.lead.create.execute(dto=dto)
 
-        return jsonify({"message": "Lead cadastrado com sucesso!"}), 201
+        return redirect(url_for("site.success_page"))
     
     def read_all(self):
         leads = self.lead.read_all.execute()

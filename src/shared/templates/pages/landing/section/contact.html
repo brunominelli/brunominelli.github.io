@@ -1,0 +1,21 @@
+<section id="contact">
+    <div class="contact-text">
+        <h2>Existe algum processo manual consumindo horas da sua operação?</h2>
+        <p>Vamos conversar.</p>
+        <p>Descreva o problema e eu retorno com uma análise inicial e possíveis caminhos para automação.</p>
+    </div>
+    <form action="{{ url_for('lead.create') }}" method="POST" class="contact-form">
+        <input type="text" name="name" id="name" placeholder="Nome" class="input" required>
+        <input type="email" name="email" id="email" placeholder="E-mail" class="input" required>
+        <input type="text" name="phone" id="phone" placeholder="Whatsapp" class="input" required>
+        <select name="subject" id="subject" class="input" required>
+            <option value="" selected disabled>Como posso te ajudar?</option>
+            <option value="automation">Automação de Relatórios e Dados</option>
+            <option value="data">Fluxos e Processos Operacionais</option>
+            <option value="api">Integrações e APIs</option>
+        </select>
+        <textarea name="message" id="message" placeholder="Descreva o processo que deseja automatizar" class="input"
+            rows=5></textarea>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</section>

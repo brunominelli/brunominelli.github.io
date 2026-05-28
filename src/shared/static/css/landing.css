@@ -1,0 +1,189 @@
+@import url("base.css");
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+
+    font-size: large;
+    background-color: var(--color-60);
+    color: var(--color-content);
+    width: 100%;
+}
+
+header {
+    display: grid;
+    grid-area: header;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    align-items: center;
+    justify-items: center;
+    padding: 16px;
+
+    nav {
+        display: flex;
+        justify-self: center;
+        gap: 16px;
+    }
+}
+
+main {
+    display: grid;
+    grid-area: main;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 96px;
+    padding: 32px;
+}
+
+#hero,
+#problem,
+#solution,
+#about {
+    display: grid;
+    gap: 24px;
+}
+
+#about {
+    align-self: start;
+}
+
+#contact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 64px;
+
+    .contact-text {
+        display: grid;
+        align-self: start;
+        gap: 20px;
+    }
+
+    .contact-form {
+        display: grid;
+        gap: 20px;
+    }
+}
+
+#success {
+    display: grid;
+    min-height: 60vh;
+    gap: 16px;
+}
+
+footer {
+    display: grid;
+    grid-area: footer;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    color: var(--color-content);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    padding: 32px;
+}
+
+/* COMPONENTES */
+
+/* Cartões */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 48px;
+}
+
+.card {
+    display: grid;
+    border-top: 1px solid var(--color-content);
+    justify-self: start;
+    padding: 16px;
+    gap: 16px;
+
+    ul,
+    ol {
+        display: grid;
+        gap: 8px;
+        list-style: none;
+    }
+}
+
+/* Inputs */
+.input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--color-content);
+    border-radius: 0;
+    color: var(--color-title);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+    padding: 16px;
+
+    &:focus {
+        border-color: var(--color-30);
+        filter: brightness(2.0);
+    }
+
+    &::placeholder {
+        color: var(--color-content);
+    }
+}
+
+
+option:disabled {
+    color: var(--color-content);
+}
+
+/* Botões */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 500ms;
+    border: none;
+    padding: 16px;
+
+    &:hover {
+        transition: 500ms;
+        /* opacity: 0.5; */
+        filter: brightness(2.0);
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+
+    @media (min-width: 768px) {
+        justify-self: start;
+    }
+}
+
+.btn-primary {
+    background-color: var(--color-10);
+    color: var(--color-60);
+
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-content);
+    justify-self: start;
+    border-bottom: 2px solid var(--color-30);
+    border-radius: 0;
+    padding: 16px 0;
+}
+
+
+/* Destaques */
+.highlight {
+    color: var(--color-10);
+    font-weight: 600;
+}

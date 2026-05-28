@@ -111,10 +111,17 @@ class UserSQLiteRepository(ILeadRepository):
         cursor = conn.cursor()
 
         cursor.execute("""
-            UPDATE leads (name = ?, email = ?, phone = ?, subject = ?, message = ?, created_at = ?, updated_at = ?)
+            UPDATE leads
+            SET
+                name = ?, 
+                email = ?, 
+                phone = ?, 
+                subject = ?, 
+                message = ?, 
+                created_at = ?, 
+                updated_at = ?
             WHERE id = ?
             """, (
-                lead.id,
                 lead.name,
                 lead.email,
                 lead.phone,
