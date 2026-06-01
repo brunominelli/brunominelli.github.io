@@ -44,5 +44,3 @@ class LeadController:
 
         self.lead.delete.execute(lead_id=lead_id)
         return jsonify({"message": "Lead excluído com sucesso!"}), 204
-
-        

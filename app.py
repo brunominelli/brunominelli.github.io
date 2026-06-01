@@ -21,7 +21,7 @@ class App:
         container = Container()
 
         # Controllers
-        site_controller = SiteController()
+        site_controller = SiteController(container=container)
         lead_controller = LeadController(container=container)
 
         # Routs

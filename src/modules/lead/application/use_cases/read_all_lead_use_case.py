@@ -7,4 +7,11 @@ class ReadAllLeadUseCase:
     
     def execute(self) -> list[LeadOutputDTO]:
         leads = self.repository.read_all()
-        return [LeadOutputDTO(**lead) for lead in leads]
+        return [LeadOutputDTO(
+            id=lead.id,
+            name=lead.name,
+            email=lead.email,
+            phone=lead.phone,
+            subject=lead.subject,
+            message=lead.message
+        ) for lead in leads]

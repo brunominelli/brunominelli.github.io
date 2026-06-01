@@ -1,0 +1,56 @@
+{% extends "layout/dashboard.html" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css')}}">
+{%endblock %}
+
+{% block content %}
+
+<main>
+    <article id="kpis" class="card-container">
+        <section class="card">
+            <p class="card-title">Total de leads</p>
+            <p>{{ leads|length }}</p>
+        </section>
+        <section class="card">
+            <p class="card-title">Aguardando contato</p>
+            <p>{{ leads|length }}</p>
+        </section>
+        <section class="card">
+            <p class="card-title">Em negociação</p>
+            <p>{{ leads|length }}</p>
+        </section>
+        <section class="card">
+            <p class="card-title">Taxa de conversão</p>
+            <p>{{ (leads|length / leads|length) * 100 }}%</p>
+        </section>
+    </article>
+
+    <article id="filters">
+        <input type="text" id="filter_by" name="filter_by" class="input" placeholder="Buscar por nome/e-mail">
+        <select name="service" id="service" class="input">
+            <option value="" selected disabled>Filtrar por serviço...</option>
+        </select>
+        <select name="order_by" id="order_by" class="input">
+            <option value="" selected disabled>Ordenar por...</option>
+        </select>
+    </article>
+
+    <article id="leads">
+        <section class="card-container">
+            {% for lead in leads%}
+            <div class="card">
+                <p>Nome: {{ lead.name }}</p>
+                <p>TAG: {{ lead.subject }}</p>
+                <p>E-mail: {{ lead.email }}</p>
+                <p>Telefone: {{ lead.phone }}</p>
+                <p>{{ lead.message }}</p>
+                <a href="#" class="btn btn-primary">Iniciar abordagem no Whatsapp</a>
+            </div>
+            {% else %}
+            <p>Nenhum lead recebido</p>
+            {% endfor %}
+        </section>
+    </article>
+</main>
+{% endblock %}

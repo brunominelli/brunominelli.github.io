@@ -8,3 +8,4 @@ class SiteRoutes:
 
         self.blueprint.add_url_rule("/", view_func=self.controller.landing_page, methods=["GET"])
         self.blueprint.add_url_rule("/success", view_func=self.controller.success_page, methods=["GET"])
+        self.blueprint.add_url_rule("/dashboard", view_func=self.controller.dashboard_page, methods=["GET"])
