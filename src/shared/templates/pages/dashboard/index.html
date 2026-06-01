@@ -10,19 +10,27 @@
     <article id="kpis" class="card-container">
         <section class="card">
             <p class="card-title">Total de leads</p>
-            <p>{{ leads|length }}</p>
+            <p>{{ kpis.all }}</p>
         </section>
         <section class="card">
-            <p class="card-title">Aguardando contato</p>
-            <p>{{ leads|length }}</p>
+            <p class="card-title">Novos</p>
+            <p>{{ kpis.new }}</p>
         </section>
         <section class="card">
-            <p class="card-title">Em negociação</p>
-            <p>{{ leads|length }}</p>
+            <p class="card-title">Em revisão</p>
+            <p>{{ kpis.under_review }}</p>
         </section>
         <section class="card">
-            <p class="card-title">Taxa de conversão</p>
-            <p>{{ (leads|length / leads|length) * 100 }}%</p>
+            <p class="card-title">Contatados</p>
+            <p>{{ kpis.contacted }}</p>
+        </section>
+        <section class="card">
+            <p class="card-title">Convertidos</p>
+            <p>{{ kpis.converted }}</p>
+        </section>
+        <section class="card">
+            <p class="card-title">Perdidos</p>
+            <p>{{ kpis.lost }}</p>
         </section>
     </article>
 
@@ -40,6 +48,7 @@
         <section class="card-container">
             {% for lead in leads%}
             <div class="card">
+                <p>Status: {{ lead.status }}</p>
                 <p>Nome: {{ lead.name }}</p>
                 <p>TAG: {{ lead.subject }}</p>
                 <p>E-mail: {{ lead.email }}</p>

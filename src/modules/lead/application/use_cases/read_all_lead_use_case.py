@@ -13,5 +13,6 @@ class ReadAllLeadUseCase:
             email=lead.email,
             phone=lead.phone,
             subject=lead.subject,
-            message=lead.message
+            message=lead.message,
+            status=lead.status
         ) for lead in leads]

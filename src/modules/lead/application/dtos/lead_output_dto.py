@@ -8,3 +8,4 @@ class LeadOutputDTO:
     phone:str
     subject:str
     message:str
+    status:str

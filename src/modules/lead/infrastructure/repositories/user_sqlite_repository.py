@@ -24,6 +24,7 @@ class UserSQLiteRepository(ILeadRepository):
             phone TEXT,
             subject TEXT,
             message TEXT,
+            status TEXT,
             created_at TEXT,
             updated_at TEXT 
         )
@@ -43,8 +44,9 @@ class UserSQLiteRepository(ILeadRepository):
             phone=row[3],
             subject=row[4],
             message=row[5],
-            created_at=row[6],
-            updated_at=row[7]
+            status=row[6],
+            created_at=row[7],
+            updated_at=row[8]
         )
     
     def create(self, lead:Lead) -> None:
@@ -53,8 +55,8 @@ class UserSQLiteRepository(ILeadRepository):
 
         try:
             cursor.execute("""
-            INSERT INTO leads (id, name, email, phone, subject, message, created_at, updated_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO leads (id, name, email, phone, subject, message, status, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 lead.id,
                 lead.name,
@@ -62,6 +64,7 @@ class UserSQLiteRepository(ILeadRepository):
                 lead.phone,
                 lead.subject,
                 lead.message,
+                lead.status,
                 lead.created_at,
                 lead.updated_at,
             ))

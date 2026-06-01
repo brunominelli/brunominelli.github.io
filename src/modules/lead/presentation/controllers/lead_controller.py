@@ -30,6 +30,10 @@ class LeadController:
 
         return jsonify(lead.__dict__), 200
     
+    def read_kpis(self):
+        kpis = self.lead.read_kpis.execute()
+        return jsonify(kpis), 200
+
     def update(self):
         data = request.json
         dto = LeadUpdateDTO(**data)

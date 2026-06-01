@@ -13,4 +13,10 @@ class SiteController:
     
     def dashboard_page(self):
         leads = self.lead.read_all.execute()
-        return render_template("pages/dashboard/index.html", leads=leads)
+        kpis = self.lead.read_kpis.execute()
+        
+        return render_template(
+            "pages/dashboard/index.html", 
+            leads=leads, 
+            kpis=kpis
+        )

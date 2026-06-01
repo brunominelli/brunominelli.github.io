@@ -10,5 +10,6 @@ class Lead:
     phone:str
     subject:str
     message:str
+    status:str
     created_at:str = datetime.now(tz=ZoneInfo("America/Sao_Paulo")).isoformat()
     updated_at:str = datetime.now(tz=ZoneInfo("America/Sao_Paulo")).isoformat()
