@@ -54,7 +54,9 @@
                 <p>E-mail: {{ lead.email }}</p>
                 <p>Telefone: {{ lead.phone }}</p>
                 <p>{{ lead.message }}</p>
-                <a href="#" class="btn btn-primary">Iniciar abordagem no Whatsapp</a>
+                <a href="{{ lead.whatsapp_url }}" class="btn btn-primary">
+                    Iniciar abordagem no Whatsapp
+                </a>
             </div>
             {% else %}
             <p>Nenhum lead recebido</p>

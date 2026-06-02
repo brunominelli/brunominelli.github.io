@@ -20,7 +20,7 @@ class UserSQLiteRepository(ILeadRepository):
         CREATE TABLE IF NOT EXISTS leads (
             id TEXT PRIMARY KEY,
             name TEXT,
-            email TEXT UNIQUE,
+            email TEXT,
             phone TEXT,
             subject TEXT,
             message TEXT,

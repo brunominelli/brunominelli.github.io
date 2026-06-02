@@ -25,3 +25,6 @@ class LeadInputDTO:
 
         if not self.message:
             errors.append("O campo nome é obrigatório")
+        
+        if errors:
+             raise Exception(errors)

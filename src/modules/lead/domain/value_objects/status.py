@@ -1,29 +1,21 @@
 from enum import Enum
-from dataclasses import dataclass
 
 class StatusEnum(Enum):
-    NEW = "Novo"
-    UNDER_REVIEW = "Em revisão" 
-    CONTACTED = "Contatado" 
-    CONVERTED = "Convertido"
-    LOST = "Perdido"
+    NEW = "new"
+    UNDER_REVIEW = "under_review" 
+    CONTACTED = "contacted" 
+    CONVERTED = "converted" 
+    LOST = "lost" 
 
-@dataclass
-class LeadStatus:
-    value: StatusEnum
+    @property
+    def label(self) -> str:
 
-    @classmethod
-    def from_str(cls, value:str) -> "LeadStatus":
-
-        mapping = {
-            "NEW": StatusEnum.NEW,
-            "UNDER_REVIEW": StatusEnum.UNDER_REVIEW,
-            "CONTACTED": StatusEnum.CONTACTED,
-            "CONVERTED": StatusEnum.CONVERTED,
-            "LOST": StatusEnum.LOST,
+        labels = {
+            StatusEnum.NEW: "Novo",
+            StatusEnum.UNDER_REVIEW: "Em revisão" ,
+            StatusEnum.CONTACTED: "Contatado" ,
+            StatusEnum.CONVERTED: "Convertido",
+            StatusEnum.LOST: "Perdido",
         }
 
-        return cls(mapping[value])
-
-    def __str__(self) -> str:
-        return self.value.value
+        return labels[self]
