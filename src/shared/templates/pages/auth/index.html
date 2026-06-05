@@ -1,0 +1,18 @@
+{% extends "layout/auth.html" %}
+
+{% block title%} Bruno Minelli {% endblock %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <form action="{{ url_for('user.login')}}" method="post">
+        <h2>Bruno Minelli</h2>
+        <input type="email" name="email" id="email" placeholder="E-mail" required class="input">
+        <input type="password" name="password" id="password" placeholder="Senha" required class="input">
+        <button type="submit" class="btn btn-primary">Entrar</button>
+    </form>
+</main>
+{% endblock %}
