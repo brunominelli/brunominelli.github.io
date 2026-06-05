@@ -10,21 +10,21 @@ class ReadKpisUseCase:
         leads = self.repository.read_all()
 
         new = 0
-        under_review = 0
         contacted = 0
+        under_review = 0
         converted = 0
         lost = 0
 
         for lead in leads:
-            if lead.status == StatusEnum.NEW.value:
+            if lead.status == StatusEnum.NEW.label:
                 new += 1
-            elif lead.status == StatusEnum.UNDER_REVIEW.value:
-                under_review += 1
-            elif lead.status == StatusEnum.CONTACTED.value:
+            elif lead.status == StatusEnum.CONTACTED.label:
                 contacted += 1
-            elif lead.status == StatusEnum.CONVERTED.value:
+            elif lead.status == StatusEnum.UNDER_REVIEW.label:
+                under_review += 1
+            elif lead.status == StatusEnum.CONVERTED.label:
                 converted += 1
-            elif lead.status == StatusEnum.LOST.value:
+            elif lead.status == StatusEnum.LOST.label:
                 lost += 1
 
         return LeadKpisDTO(

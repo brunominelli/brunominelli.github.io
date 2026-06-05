@@ -17,20 +17,8 @@
             <p>{{ kpis.new }}</p>
         </section>
         <section class="card">
-            <p class="card-title">Em revisão</p>
-            <p>{{ kpis.under_review }}</p>
-        </section>
-        <section class="card">
             <p class="card-title">Contatados</p>
             <p>{{ kpis.contacted }}</p>
-        </section>
-        <section class="card">
-            <p class="card-title">Convertidos</p>
-            <p>{{ kpis.converted }}</p>
-        </section>
-        <section class="card">
-            <p class="card-title">Perdidos</p>
-            <p>{{ kpis.lost }}</p>
         </section>
     </article>
 
@@ -46,7 +34,7 @@
 
     <article id="leads">
         <section class="card-container">
-            {% for lead in leads%}
+            {% for lead in leads %}
             <div class="card">
                 <p>Status: {{ lead.status }}</p>
                 <p>Nome: {{ lead.name }}</p>
@@ -54,7 +42,7 @@
                 <p>E-mail: {{ lead.email }}</p>
                 <p>Telefone: {{ lead.phone }}</p>
                 <p>{{ lead.message }}</p>
-                <a href="{{ lead.whatsapp_url }}" class="btn btn-primary">
+                <a href="{{ url_for('lead.update_status', lead_id=lead.id) }}" class="btn btn-primary">
                     Iniciar abordagem no Whatsapp
                 </a>
             </div>

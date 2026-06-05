@@ -2,9 +2,9 @@
 <html lang="pt-Br">
 
 <head>
-    <title>{% block title %}{% endblock %}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
     {% block stylesheet %}{%endblock %}
 </head>
 
@@ -13,7 +13,7 @@
         <h1>Painel de Leads | Bruno Minelli</h1>
         <nav>
             <a href="{{ url_for('site.landing_page') }}" class="btn btn-secondary">Ver site</a>
-            <a href="#" class="btn btn-secondary">Sair</a>
+            <a href="{{ url_for('user.logout') }}" class="btn btn-secondary">Sair</a>
         </nav>
     </header>
 

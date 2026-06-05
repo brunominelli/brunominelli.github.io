@@ -7,4 +7,12 @@ class ReadLeadByIdUseCase:
     
     def execute(self, lead_id:str) -> LeadOutputDTO:
         lead = self.repository.read_by_id(lead_id=lead_id)
-        return LeadOutputDTO(**lead)
+        return LeadOutputDTO(
+            id=lead.id,
+            name=lead.name,
+            email=lead.email,
+            phone=lead.phone,
+            subject=lead.subject,
+            message=lead.message,
+            status=lead.status,
+        )
