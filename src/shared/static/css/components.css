@@ -25,6 +25,13 @@
     text-transform: uppercase;
 }
 
+.tag {
+    background-color: var(--color-30);
+    padding: 16px;
+    border-radius: 8px;
+    justify-self: end;
+}
+
 /* Inputs */
 .input {
     width: 100%;

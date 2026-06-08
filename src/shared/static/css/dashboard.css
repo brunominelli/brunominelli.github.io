@@ -22,6 +22,24 @@ header {
     align-items: center;
     justify-items: center;
 
+    div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        img {
+            width: 25%;
+        }
+    }
+
+    nav {
+        display: flex;
+        justify-self: center;
+        gap: 16px;
+    }
+
 }
 
 main {
@@ -39,4 +57,8 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 32px;
+}
+
+.btn-primary {
+    justify-self: unset;
 }

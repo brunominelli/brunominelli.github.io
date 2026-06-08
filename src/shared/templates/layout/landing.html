@@ -4,13 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='images/bm-logo.png')}}">
     <title>{% block title %}{% endblock %}</title>
     {% block stylesheet %}{%endblock %}
 </head>
 
 <body>
     <header>
-        <h1>Bruno Minelli</h1>
+        <div>
+            <img src="{{ url_for('static', filename='images/bm-logo.png')}}" alt="Logo Bruno Minelli">
+            <h1>Bruno Minelli</h1>
+        </div>
         <nav>
             <a href="#solution" class="btn btn-secondary">Soluções</a>
             <a href="#contact" class="btn btn-secondary">Contato</a>

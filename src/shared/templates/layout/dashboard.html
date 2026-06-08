@@ -4,13 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='images/bm-logo.png')}}">
     <title>{% block title %}{% endblock %}</title>
     {% block stylesheet %}{%endblock %}
 </head>
 
 <body>
     <header>
-        <h1>Painel de Leads | Bruno Minelli</h1>
+        <div>
+            <img src="{{ url_for('static', filename='images/bm-logo.png')}}" alt="Logo Bruno Minelli">
+            <h1>Painel de Leads</h1>
+        </div>
         <nav>
             <a href="{{ url_for('site.landing_page') }}" class="btn btn-secondary">Ver site</a>
             <a href="{{ url_for('user.logout') }}" class="btn btn-secondary">Sair</a>

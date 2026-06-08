@@ -23,6 +23,16 @@ header {
     justify-items: center;
     padding: 16px;
 
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 25%;
+        }
+    }
+
     nav {
         display: flex;
         justify-self: center;

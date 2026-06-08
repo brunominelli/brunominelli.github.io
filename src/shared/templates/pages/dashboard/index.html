@@ -1,8 +1,9 @@
 {% extends "layout/dashboard.html" %}
 
+{% block title %}Dashboard - Bruno Minelli{% endblock %}
 {% block stylesheet %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css')}}">
-{%endblock %}
+{% endblock %}
 
 {% block content %}
 
@@ -22,7 +23,7 @@
         </section>
     </article>
 
-    <article id="filters">
+    <!-- <article id="filters">
         <input type="text" id="filter_by" name="filter_by" class="input" placeholder="Buscar por nome/e-mail">
         <select name="service" id="service" class="input">
             <option value="" selected disabled>Filtrar por serviço...</option>
@@ -30,13 +31,13 @@
         <select name="order_by" id="order_by" class="input">
             <option value="" selected disabled>Ordenar por...</option>
         </select>
-    </article>
+    </article> -->
 
     <article id="leads">
         <section class="card-container">
             {% for lead in leads %}
             <div class="card">
-                <p>Status: {{ lead.status }}</p>
+                <p class="tag">{{ lead.status }}</p>
                 <p>Nome: {{ lead.name }}</p>
                 <p>TAG: {{ lead.subject }}</p>
                 <p>E-mail: {{ lead.email }}</p>
