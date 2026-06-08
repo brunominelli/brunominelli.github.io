@@ -9,11 +9,11 @@
 }
 
 :root {
-    --color-60: #1E293B;
+    --color-60: #FEFEFE;
     --color-30: #3776AB;
     --color-10: #FFD43B;
-    --color-title: #FEFEFE;
-    --color-content: #CBD5E1;
+    --color-title: #1E293B;
+    --color-content: #070707;
 }
 
 /* Tipografia minimalista: contraste puro através de peso e cor */
