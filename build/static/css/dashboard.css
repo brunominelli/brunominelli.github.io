@@ -1,0 +1,64 @@
+@import url("base.css");
+@import url("components.css");
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "main";
+
+    font-size: large;
+    background-color: var(--color-60);
+    color: var(--color-content);
+    width: 100%;
+}
+
+header {
+    display: grid;
+    grid-area: header;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    padding: 32px;
+    align-items: center;
+    justify-items: center;
+
+    div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        img {
+            width: 25%;
+        }
+    }
+
+    nav {
+        display: flex;
+        justify-self: center;
+        gap: 16px;
+    }
+
+}
+
+main {
+    display: grid;
+    grid-area: main;
+    padding: 32px;
+    gap: 32px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+#filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+.btn-primary {
+    justify-self: unset;
+}

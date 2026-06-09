@@ -1,0 +1,35 @@
+@import url("base.css");
+@import url("components.css");
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    font-size: large;
+    background-color: var(--color-60);
+    color: var(--color-content);
+    width: 100%;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    padding: 32px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-self: center;
+    gap: 32px;
+    width: 100%;
+    max-width: 384px;
+    text-align: center;
+
+    margin: 0 auto;
+
+    .btn,
+    btn-primary {
+        justify-self: unset;
+    }
+}
