@@ -72,6 +72,16 @@ main {
         gap: 20px;
     }
 
+    .contact-links {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        .btn,
+        .btn-secondary {
+            justify-self: unset;
+        }
+    }
+
     .contact-form {
         display: grid;
         gap: 20px;
